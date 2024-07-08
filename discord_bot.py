@@ -1,5 +1,5 @@
 # bot.py
-import os
+import os, random, pathlib
 import discord
 from discord.ext import commands, tasks
 from discord.utils import get
@@ -50,10 +50,7 @@ async def on_member_join(member):
 async def on_message(message):
     if message.author == client.user:
         return
-
-    muffin_key ="muffin"
-
-    if message.content == "muffin":
-        response = muffin_key
-        await message.channel.send(response)
+    msg = message.content.lower()
+    if "muffin" in msg:
+        await message.channel.send(file=discord.File(os.getcwd() + "\muffin_pics\\" + random.choice(os.listdir(os.getcwd() + "\muffin_pics"))))
 client.run(TOKEN)
