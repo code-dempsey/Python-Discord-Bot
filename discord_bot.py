@@ -52,5 +52,5 @@ async def on_message(message):
         return
     msg = message.content.lower()
     if "muffin" in msg:
-        await message.channel.send(file=discord.File(os.getcwd() + "\muffin_pics\\" + random.choice(os.listdir(os.getcwd() + "\muffin_pics"))))
+        await message.channel.send(file=discord.File(os.getcwd() + "/muffin_pics/" + random.choice(os.listdir(os.getcwd() + "/muffin_pics")))) #\ changed to / for Linux compatibility
 client.run(TOKEN)
